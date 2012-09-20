@@ -1,0 +1,6 @@
+cms_page:
+    pattern:  /cms/{page_slug}.html
+    defaults: { _controller: PasinterCmsBundle:Page:view}
+    requirements:
+      _method:  GET
+      page_slug: "[a-z0-9-]+"

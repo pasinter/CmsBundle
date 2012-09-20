@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Pasinter\Bundle\CmsBundle\Entity\Page" table="cms_pages"
+            repository-class="Pasinter\Bundle\CmsBundle\Repository\PageRepository">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        
+        <field name="title" column="title" type="string" />
+        
+        <field name="link" column="link" type="string" />
+        
+        <field name="content" column="content" type="text" />
+        
+        <field name="slug" column="slug" type="string" unique="true" nullable="true">
+            <gedmo:slug fields="link" unique="true" />
+        </field>
+        
+        
+        <one-to-many field="blocks" target-entity="Pasinter\Bundle\CmsBundle\Entity\Block" mapped-by="page">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
+        
+        
+        <many-to-many field="collections" inversed-by="pages" target-entity="Collection">
+            <join-table name="cms_block_collections">
+                <join-columns>
+                    <join-column name="page_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="collection_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+        
+        
+        
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+        
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+    </entity>
+
+</doctrine-mapping>
