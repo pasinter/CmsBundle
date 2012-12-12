@@ -1,6 +1,6 @@
 <?php
 
-namespace Pasinter\Bundle\CmsBundle\Admin;
+namespace Pasinter\CmsBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;

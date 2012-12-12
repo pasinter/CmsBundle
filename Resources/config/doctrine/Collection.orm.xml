@@ -5,8 +5,8 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Pasinter\Bundle\CmsBundle\Entity\Collection" table="cms_collections"
-            repository-class="Pasinter\Bundle\CmsBundle\Repository\CollectionRepository">
+    <entity name="Pasinter\CmsBundle\Entity\Collection" table="cms_collections"
+            repository-class="Pasinter\CmsBundle\Repository\CollectionRepository">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>

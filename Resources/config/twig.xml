@@ -4,8 +4,8 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="pasinter_cms.collection_extension.class">Pasinter\Bundle\CmsBundle\Twig\CollectionExtension</parameter>
-        <parameter key="pasinter_cms.block_extension.class">Pasinter\Bundle\CmsBundle\Twig\BlockExtension</parameter>
+        <parameter key="pasinter_cms.collection_extension.class">Pasinter\CmsBundle\Twig\CollectionExtension</parameter>
+        <parameter key="pasinter_cms.block_extension.class">Pasinter\CmsBundle\Twig\BlockExtension</parameter>
     </parameters>
 
     <services>

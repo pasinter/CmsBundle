@@ -5,7 +5,7 @@
  * @author      Ken Golovin <ken@webplanet.co.nz>
  */
 
-namespace Pasinter\Bundle\CmsBundle\DependencyInjection;
+namespace Pasinter\CmsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;

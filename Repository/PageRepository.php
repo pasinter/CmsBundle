@@ -1,6 +1,6 @@
 <?php
 
-namespace Pasinter\Bundle\CmsBundle\Repository;
+namespace Pasinter\CmsBundle\Repository;
 
 
 use Doctrine\ORM\EntityRepository;

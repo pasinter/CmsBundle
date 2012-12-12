@@ -5,8 +5,8 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Pasinter\Bundle\CmsBundle\Entity\Page" table="cms_pages"
-            repository-class="Pasinter\Bundle\CmsBundle\Repository\PageRepository">
+    <entity name="Pasinter\CmsBundle\Entity\Page" table="cms_pages"
+            repository-class="Pasinter\CmsBundle\Repository\PageRepository">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
@@ -22,7 +22,7 @@
         </field>
         
         
-        <one-to-many field="blocks" target-entity="Pasinter\Bundle\CmsBundle\Entity\Block" mapped-by="page">
+        <one-to-many field="blocks" target-entity="Pasinter\CmsBundle\Entity\Block" mapped-by="page">
             <cascade>
                 <cascade-persist/>
             </cascade>

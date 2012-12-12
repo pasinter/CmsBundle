@@ -1,6 +1,6 @@
 <?php
 
-namespace Pasinter\Bundle\CmsBundle\Entity;
+namespace Pasinter\CmsBundle\Entity;
 
 
 class Collection
@@ -146,10 +146,10 @@ class Collection
     /**
      * Add pages
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Page $pages
+     * @param Pasinter\CmsBundle\Entity\Page $pages
      * @return Collection
      */
-    public function addPage(\Pasinter\Bundle\CmsBundle\Entity\Page $pages)
+    public function addPage(\Pasinter\CmsBundle\Entity\Page $pages)
     {
         $this->pages[] = $pages;
         return $this;
@@ -158,9 +158,9 @@ class Collection
     /**
      * Remove pages
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Page $pages
+     * @param Pasinter\CmsBundle\Entity\Page $pages
      */
-    public function removePage(\Pasinter\Bundle\CmsBundle\Entity\Page $pages)
+    public function removePage(\Pasinter\CmsBundle\Entity\Page $pages)
     {
         $this->pages->removeElement($pages);
     }

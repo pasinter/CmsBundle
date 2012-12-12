@@ -4,26 +4,26 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="pasinter.cms.admin.page" class="Pasinter\Bundle\CmsBundle\Admin\PageAdmin">
+        <service id="pasinter.cms.admin.page" class="Pasinter\CmsBundle\Admin\PageAdmin">
             <tag name="sonata.admin" manager_type="orm" group="CMS" label="Pages" label_translator_strategy="sonata.admin.label.strategy.native" />
             <argument />
-            <argument>Pasinter\Bundle\CmsBundle\Entity\Page</argument>
+            <argument>Pasinter\CmsBundle\Entity\Page</argument>
             <argument>SonataAdminBundle:CRUD</argument>
             
         </service>
         
-        <service id="pasinter.cms.admin.block" class="Pasinter\Bundle\CmsBundle\Admin\BlockAdmin">
+        <service id="pasinter.cms.admin.block" class="Pasinter\CmsBundle\Admin\BlockAdmin">
             <tag name="sonata.admin" manager_type="orm" group="CMS" label="Blocks" label_translator_strategy="sonata.admin.label.strategy.native" />
             <argument />
-            <argument>Pasinter\Bundle\CmsBundle\Entity\Block</argument>
+            <argument>Pasinter\CmsBundle\Entity\Block</argument>
             <argument>SonataAdminBundle:CRUD</argument>
             
         </service>
         
-        <service id="pasinter.cms.admin.collection" class="Pasinter\Bundle\CmsBundle\Admin\CollectionAdmin">
+        <service id="pasinter.cms.admin.collection" class="Pasinter\CmsBundle\Admin\CollectionAdmin">
             <tag name="sonata.admin" manager_type="orm" group="CMS" label="Collections" label_translator_strategy="sonata.admin.label.strategy.native" />
             <argument />
-            <argument>Pasinter\Bundle\CmsBundle\Entity\Collection</argument>
+            <argument>Pasinter\CmsBundle\Entity\Collection</argument>
             <argument>SonataAdminBundle:CRUD</argument>
             
         </service>

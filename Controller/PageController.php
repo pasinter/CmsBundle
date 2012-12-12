@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Pasinter\Bundle\CmsBundle\Controller;
+namespace Pasinter\CmsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
