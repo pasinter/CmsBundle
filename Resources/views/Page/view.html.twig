@@ -6,6 +6,8 @@
 
 {{ page.content|raw }}
 
+{{ cms_page_render_content() }}
+
 </div>
 {% endblock %}
 
@@ -24,6 +26,9 @@
         </a></li>
     {% endfor %}
     </ul>
+    
+    
+    {{ cms_block_render('sidebar_bottom') }}
 
 </div>
 {% endblock content_sidebar %}

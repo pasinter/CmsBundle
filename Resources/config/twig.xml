@@ -6,6 +6,7 @@
     <parameters>
         <parameter key="pasinter_cms.collection_extension.class">Pasinter\CmsBundle\Twig\CollectionExtension</parameter>
         <parameter key="pasinter_cms.block_extension.class">Pasinter\CmsBundle\Twig\BlockExtension</parameter>
+        <parameter key="pasinter_cms.page_extension.class">Pasinter\CmsBundle\Twig\PageExtension</parameter>
     </parameters>
 
     <services>
@@ -19,6 +20,11 @@
             <call method="setContainer"><argument type="service" id ="service_container" /></call>
         </service>
 
+        <service id="pasinter_cms.page_extension" class="%pasinter_cms.page_extension.class%" public="false">
+            <tag name="twig.extension" />
+            <call method="setContainer"><argument type="service" id ="service_container" /></call>
+        </service>
+        
     </services>
 
 </container>

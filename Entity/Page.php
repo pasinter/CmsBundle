@@ -10,42 +10,37 @@ class Page
     /**
      * @var string $title
      */
-    private $title;
-
-    /**
-     * @var string $link
-     */
-    private $link;
+    protected $title;
 
     /**
      * @var text $content
      */
-    private $content;
+    protected $content;
 
     /**
      * @var datetime $createdAt
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var datetime $updatedAt
      */
-    private $updatedAt;
+    protected $updatedAt;
 
     /**
      * @var integer $id
      */
-    private $id;
+    protected $id;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $blocks;
+    protected $blocks;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $collections;
+    protected $collections;
 
     public function __construct()
     {
@@ -81,25 +76,17 @@ class Page
     }
 
     /**
-     * Set link
-     *
-     * @param string $link
-     * @return Page
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-        return $this;
-    }
-
-    /**
      * Get link
      *
      * @return string 
      */
-    public function getLink()
+    public function getRouteParams()
     {
-        return $this->link;
+        if('cms_page' === $this->getRoute()) {
+            return array('page_slug' => $this->slug);
+        }
+        
+        return array();
     }
 
     /**
@@ -181,21 +168,26 @@ class Page
     /**
      * Add blocks
      *
-     * @param Pasinter\CmsBundle\Entity\Block $blocks
+     * @param Pasinter\Bundle\CmsBundle\Entity\Block $blocks
      * @return Page
      */
-    public function addBlock(\Pasinter\CmsBundle\Entity\Block $blocks)
+    public function addBlock(\Pasinter\Bundle\CmsBundle\Entity\Block $blocks)
     {
         $this->blocks[] = $blocks;
         return $this;
+    }
+    
+    public function addBlocks(\Pasinter\Bundle\CmsBundle\Entity\Block $block)
+    {
+        return $this->addBlock($block);
     }
 
     /**
      * Remove blocks
      *
-     * @param Pasinter\CmsBundle\Entity\Block $blocks
+     * @param Pasinter\Bundle\CmsBundle\Entity\Block $blocks
      */
-    public function removeBlock(\Pasinter\CmsBundle\Entity\Block $blocks)
+    public function removeBlock(\Pasinter\Bundle\CmsBundle\Entity\Block $blocks)
     {
         $this->blocks->removeElement($blocks);
     }
@@ -209,14 +201,29 @@ class Page
     {
         return $this->blocks;
     }
+    
+    /**
+     * @param string $code
+     * @return Pasinter\Bundle\CmsBundle\Entity\Block
+     */
+    public function getBlockByCode($code)
+    {
+        foreach($this->getBlocks() as $block) {
+            if($code === $block->getCode()) {
+                return $block;
+            }
+        }
+        
+        return null;
+    }
 
     /**
      * Add collections
      *
-     * @param Pasinter\CmsBundle\Entity\Collection $collections
+     * @param Pasinter\Bundle\CmsBundle\Entity\Collection $collections
      * @return Page
      */
-    public function addCollection(\Pasinter\CmsBundle\Entity\Collection $collections)
+    public function addCollection(\Pasinter\Bundle\CmsBundle\Entity\Collection $collections)
     {
         $this->collections[] = $collections;
         return $this;
@@ -225,9 +232,9 @@ class Page
     /**
      * Remove collections
      *
-     * @param Pasinter\CmsBundle\Entity\Collection $collections
+     * @param Pasinter\Bundle\CmsBundle\Entity\Collection $collections
      */
-    public function removeCollection(\Pasinter\CmsBundle\Entity\Collection $collections)
+    public function removeCollection(\Pasinter\Bundle\CmsBundle\Entity\Collection $collections)
     {
         $this->collections->removeElement($collections);
     }
@@ -244,7 +251,7 @@ class Page
     /**
      * @var string $slug
      */
-    private $slug;
+    protected $slug;
 
 
     /**
@@ -267,5 +274,120 @@ class Page
     public function getSlug()
     {
         return $this->slug;
+    }
+    /**
+     * @var string $route
+     */
+    protected $route = 'cms_page';
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    protected $children;
+
+
+    /**
+     * Set route
+     *
+     * @param string $route
+     * @return Page
+     */
+    public function setRoute($route)
+    {
+        $this->route = $route;
+        return $this;
+    }
+
+    /**
+     * Get route
+     *
+     * @return string 
+     */
+    public function getRoute()
+    {
+        return $this->route;
+    }
+
+    /**
+     * Add children
+     *
+     * @param Pasinter\Bundle\CmsBundle\Entity\Page $children
+     * @return Page
+     */
+    public function addChildren(\Pasinter\Bundle\CmsBundle\Entity\Page $children)
+    {
+        $this->children[] = $children;
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param Pasinter\Bundle\CmsBundle\Entity\Page $children
+     */
+    public function removeChildren(\Pasinter\Bundle\CmsBundle\Entity\Page $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+  
+    /**
+     * @var Pasinter\Bundle\CmsBundle\Entity\Page
+     */
+    protected $parent;
+
+
+    /**
+     * Set parent
+     *
+     * @param Pasinter\Bundle\CmsBundle\Entity\Page $parent
+     * @return Page
+     */
+    public function setParent(\Pasinter\Bundle\CmsBundle\Entity\Page $parent = null)
+    {
+        $this->parent = $parent;
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return Pasinter\Bundle\CmsBundle\Entity\Page 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+    
+    /**
+     *
+     * @return string 
+     */
+    public function getLink()
+    {
+        $link = $this->getRoute();
+        
+        if(count($this->getRouteParams()) > 0) {
+            $link .= '?';
+            
+            $routeParams = array();
+            foreach($this->getRouteParams() as $key => $value) {
+                $routeParams[] = $key . '=' . $value;
+            }
+            
+            $link .= implode('&', $routeParams);
+        }
+        
+        return $link;
     }
 }

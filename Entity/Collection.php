@@ -8,32 +8,32 @@ class Collection
     /**
      * @var string $code
      */
-    private $code;
+    protected $code;
 
     /**
      * @var string $description
      */
-    private $description;
+    protected $description;
 
     /**
      * @var datetime $createdAt
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var datetime $updatedAt
      */
-    private $updatedAt;
+    protected $updatedAt;
 
     /**
      * @var integer $id
      */
-    private $id;
+    protected $id;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $pages;
+    protected $pages;
 
     public function __construct()
     {
@@ -146,10 +146,10 @@ class Collection
     /**
      * Add pages
      *
-     * @param Pasinter\CmsBundle\Entity\Page $pages
+     * @param Pasinter\Bundle\CmsBundle\Entity\Page $pages
      * @return Collection
      */
-    public function addPage(\Pasinter\CmsBundle\Entity\Page $pages)
+    public function addPage(\Pasinter\Bundle\CmsBundle\Entity\Page $pages)
     {
         $this->pages[] = $pages;
         return $this;
@@ -158,9 +158,9 @@ class Collection
     /**
      * Remove pages
      *
-     * @param Pasinter\CmsBundle\Entity\Page $pages
+     * @param Pasinter\Bundle\CmsBundle\Entity\Page $pages
      */
-    public function removePage(\Pasinter\CmsBundle\Entity\Page $pages)
+    public function removePage(\Pasinter\Bundle\CmsBundle\Entity\Page $pages)
     {
         $this->pages->removeElement($pages);
     }

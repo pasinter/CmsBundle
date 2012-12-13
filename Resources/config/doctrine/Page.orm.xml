@@ -13,16 +13,16 @@
         
         <field name="title" column="title" type="string" />
         
-        <field name="link" column="link" type="string" />
+        <field name="route" column="route" type="string" nullable="true" />
         
-        <field name="content" column="content" type="text" />
+        <field name="content" column="content" type="text" nullable="true" />
         
         <field name="slug" column="slug" type="string" unique="true" nullable="true">
-            <gedmo:slug fields="link" unique="true" />
+            <gedmo:slug fields="title" unique="true" />
         </field>
         
         
-        <one-to-many field="blocks" target-entity="Pasinter\CmsBundle\Entity\Block" mapped-by="page">
+        <one-to-many field="blocks" target-entity="Pasinter\Bundle\CmsBundle\Entity\Block" mapped-by="page">
             <cascade>
                 <cascade-persist/>
             </cascade>
@@ -39,6 +39,18 @@
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
+        
+        
+        <many-to-one field="parent" target-entity="Page">
+            <join-column name="parent_id" referenced-column-name="id" />
+            <order-by>title ASC</order-by>
+        </many-to-one>
+        
+        <one-to-many field="children" target-entity="Page" mapped-by="parent">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
         
         
         

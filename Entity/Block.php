@@ -10,37 +10,37 @@ class Block
     /**
      * @var string $code
      */
-    private $code;
+    protected $code;
 
     /**
      * @var text $content
      */
-    private $content;
+    protected $content;
 
     /**
      * @var integer $pageId
      */
-    private $pageId;
+    protected $pageId;
 
     /**
      * @var datetime $createdAt
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var datetime $updatedAt
      */
-    private $updatedAt;
+    protected $updatedAt;
 
     /**
      * @var integer $id
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var Pasinter\CmsBundle\Entity\Page
+     * @var Pasinter\Bundle\CmsBundle\Entity\Page
      */
-    private $page;
+    protected $page;
 
 
     /**
@@ -180,10 +180,10 @@ class Block
     /**
      * Set page
      *
-     * @param Pasinter\CmsBundle\Entity\Page $page
+     * @param Pasinter\Bundle\CmsBundle\Entity\Page $page
      * @return Block
      */
-    public function setPage(\Pasinter\CmsBundle\Entity\Page $page = null)
+    public function setPage(\Pasinter\Bundle\CmsBundle\Entity\Page $page = null)
     {
         $this->page = $page;
         return $this;
@@ -192,7 +192,7 @@ class Block
     /**
      * Get page
      *
-     * @return Pasinter\CmsBundle\Entity\Page 
+     * @return Pasinter\Bundle\CmsBundle\Entity\Page 
      */
     public function getPage()
     {

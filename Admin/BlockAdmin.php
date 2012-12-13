@@ -31,6 +31,8 @@ class BlockAdmin extends Admin
             ->with('Content')
                 ->add('code', null, array('required' => true))
                 ->add('page', null, array('required' => false))
+                //->add('content', null, array('required' => true, 'attr' => array()))
+            
                 ->add('content', null, array('required' => true, 'attr' => array('class' => 'tinymce', 'tinymce'=>'{"theme":"simple"}')))
             ->end()
         ;

@@ -14,7 +14,7 @@ class PageAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('link')
+            ->add('link', 'string')
             ->add('collections')
             
             // add custom action links
@@ -31,13 +31,12 @@ class PageAdmin extends Admin
         $formMapper
             ->with('Content')
                 ->add('title', null, array('required' => true))
-                ->add('link', null, array('required' => true))
+                ->add('route', null, array('required' => true))
                 ->add('collections', null, array('required' => false))
-
-                ->add('content', null, array('required' => true, 'attr' => array('class' => 'tinymce', 'style'=>'min-width:700px;min-height: 300px;', 'tinymce'=>'{"theme":"advanced"}')))
+                ->add('content', null, array('required' => false, 'attr' => array('class' => 'tinymce', 'style'=>'min-width:700px;min-height: 300px;', 'tinymce'=>'{"theme":"advanced"}')))
             ->end()
                 
-            /*
+            
             ->with('Blocks')
                 ->add('blocks', 'sonata_type_collection', array('label' => ' ', 'by_reference' => false, 'required' => false),  array(
                         // http://stackoverflow.com/questions/11501022/sonata-admin-bundle-form-type-sonata-type-collection-custom-template
@@ -46,8 +45,7 @@ class PageAdmin extends Admin
                         'link_parameters' => array('pageId' => $this->subject->getId()),
                         ))
             ->end()
-             * 
-             */
+                
         ;
     }
     
@@ -55,7 +53,7 @@ class PageAdmin extends Admin
     {
         $filterMapper
             ->add('title')
-            ->add('link')
+            ->add('route')
         ;
     }
   
