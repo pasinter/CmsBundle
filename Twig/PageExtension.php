@@ -1,6 +1,6 @@
 <?php
 
-namespace Pasinter\Bundle\CmsBundle\Twig;
+namespace Pasinter\CmsBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerAwareInterface,
     Symfony\Component\DependencyInjection\ContainerInterface;
@@ -42,7 +42,7 @@ class PageExtension extends \Twig_Extension implements ContainerAwareInterface
      * @param string $code
      * @param array $path
      * @param array $options
-     * @return \Pasinter\Bundle\CmsBundle\Enity\Page|null
+     * @return \Pasinter\CmsBundle\Enity\Page|null
      */
     public function get(array $options = array())
     {
@@ -121,7 +121,7 @@ class PageExtension extends \Twig_Extension implements ContainerAwareInterface
      *
      * @param type $code
      * @param array $options
-     * @return \Pasinter\Bundle\CmsBundle\Enity\Block|null
+     * @return \Pasinter\CmsBundle\Enity\Block|null
      */
     public function getBlock($code, array $options = array())
     {

@@ -34,7 +34,7 @@ class PageController extends Controller
         $page = $qb->getQuery()->getSingleResult();
         
         if($page) {
-            $this->get('webplanet_catalog.breadcrumbs_menu')->addChild($page->getTitle());
+            $this->get('pasinter_catalog.breadcrumbs_menu')->addChild($page->getTitle());
         }
         
         return $this->render('PasinterCmsBundle:Page:view.html.twig', array(

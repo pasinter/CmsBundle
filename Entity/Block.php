@@ -38,7 +38,7 @@ class Block
     protected $id;
 
     /**
-     * @var Pasinter\Bundle\CmsBundle\Entity\Page
+     * @var Pasinter\CmsBundle\Entity\Page
      */
     protected $page;
 
@@ -180,10 +180,10 @@ class Block
     /**
      * Set page
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Page $page
+     * @param Pasinter\CmsBundle\Entity\Page $page
      * @return Block
      */
-    public function setPage(\Pasinter\Bundle\CmsBundle\Entity\Page $page = null)
+    public function setPage(\Pasinter\CmsBundle\Entity\Page $page = null)
     {
         $this->page = $page;
         return $this;
@@ -192,7 +192,7 @@ class Block
     /**
      * Get page
      *
-     * @return Pasinter\Bundle\CmsBundle\Entity\Page 
+     * @return Pasinter\CmsBundle\Entity\Page 
      */
     public function getPage()
     {

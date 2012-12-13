@@ -168,16 +168,16 @@ class Page
     /**
      * Add blocks
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Block $blocks
+     * @param Pasinter\CmsBundle\Entity\Block $blocks
      * @return Page
      */
-    public function addBlock(\Pasinter\Bundle\CmsBundle\Entity\Block $blocks)
+    public function addBlock(\Pasinter\CmsBundle\Entity\Block $blocks)
     {
         $this->blocks[] = $blocks;
         return $this;
     }
     
-    public function addBlocks(\Pasinter\Bundle\CmsBundle\Entity\Block $block)
+    public function addBlocks(\Pasinter\CmsBundle\Entity\Block $block)
     {
         return $this->addBlock($block);
     }
@@ -185,9 +185,9 @@ class Page
     /**
      * Remove blocks
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Block $blocks
+     * @param Pasinter\CmsBundle\Entity\Block $blocks
      */
-    public function removeBlock(\Pasinter\Bundle\CmsBundle\Entity\Block $blocks)
+    public function removeBlock(\Pasinter\CmsBundle\Entity\Block $blocks)
     {
         $this->blocks->removeElement($blocks);
     }
@@ -204,7 +204,7 @@ class Page
     
     /**
      * @param string $code
-     * @return Pasinter\Bundle\CmsBundle\Entity\Block
+     * @return Pasinter\CmsBundle\Entity\Block
      */
     public function getBlockByCode($code)
     {
@@ -220,10 +220,10 @@ class Page
     /**
      * Add collections
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Collection $collections
+     * @param Pasinter\CmsBundle\Entity\Collection $collections
      * @return Page
      */
-    public function addCollection(\Pasinter\Bundle\CmsBundle\Entity\Collection $collections)
+    public function addCollection(\Pasinter\CmsBundle\Entity\Collection $collections)
     {
         $this->collections[] = $collections;
         return $this;
@@ -232,9 +232,9 @@ class Page
     /**
      * Remove collections
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Collection $collections
+     * @param Pasinter\CmsBundle\Entity\Collection $collections
      */
-    public function removeCollection(\Pasinter\Bundle\CmsBundle\Entity\Collection $collections)
+    public function removeCollection(\Pasinter\CmsBundle\Entity\Collection $collections)
     {
         $this->collections->removeElement($collections);
     }
@@ -311,10 +311,10 @@ class Page
     /**
      * Add children
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Page $children
+     * @param Pasinter\CmsBundle\Entity\Page $children
      * @return Page
      */
-    public function addChildren(\Pasinter\Bundle\CmsBundle\Entity\Page $children)
+    public function addChildren(\Pasinter\CmsBundle\Entity\Page $children)
     {
         $this->children[] = $children;
         return $this;
@@ -323,9 +323,9 @@ class Page
     /**
      * Remove children
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Page $children
+     * @param Pasinter\CmsBundle\Entity\Page $children
      */
-    public function removeChildren(\Pasinter\Bundle\CmsBundle\Entity\Page $children)
+    public function removeChildren(\Pasinter\CmsBundle\Entity\Page $children)
     {
         $this->children->removeElement($children);
     }
@@ -342,7 +342,7 @@ class Page
 
   
     /**
-     * @var Pasinter\Bundle\CmsBundle\Entity\Page
+     * @var Pasinter\CmsBundle\Entity\Page
      */
     protected $parent;
 
@@ -350,10 +350,10 @@ class Page
     /**
      * Set parent
      *
-     * @param Pasinter\Bundle\CmsBundle\Entity\Page $parent
+     * @param Pasinter\CmsBundle\Entity\Page $parent
      * @return Page
      */
-    public function setParent(\Pasinter\Bundle\CmsBundle\Entity\Page $parent = null)
+    public function setParent(\Pasinter\CmsBundle\Entity\Page $parent = null)
     {
         $this->parent = $parent;
         return $this;
@@ -362,7 +362,7 @@ class Page
     /**
      * Get parent
      *
-     * @return Pasinter\Bundle\CmsBundle\Entity\Page 
+     * @return Pasinter\CmsBundle\Entity\Page 
      */
     public function getParent()
     {

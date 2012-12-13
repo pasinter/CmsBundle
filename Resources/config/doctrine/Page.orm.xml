@@ -22,7 +22,7 @@
         </field>
         
         
-        <one-to-many field="blocks" target-entity="Pasinter\Bundle\CmsBundle\Entity\Block" mapped-by="page">
+        <one-to-many field="blocks" target-entity="Pasinter\CmsBundle\Entity\Block" mapped-by="page">
             <cascade>
                 <cascade-persist/>
             </cascade>
