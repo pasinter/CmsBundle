@@ -44,7 +44,7 @@ class CollectionExtension extends \Twig_Extension implements ContainerAwareInter
      */
     public function get($code, array $path = array(), array $options = array())
     {
-        $em = $this->container->get('doctrine')->getEntityManager(); 
+        $em = $this->container->get('doctrine')->getManager(); 
         
         $qb = $em->getRepository('PasinterCmsBundle:Collection')->createQueryBuilder('c');
         

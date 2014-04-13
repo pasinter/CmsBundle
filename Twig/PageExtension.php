@@ -49,7 +49,7 @@ class PageExtension extends \Twig_Extension implements ContainerAwareInterface
         $request = $this->container->get('request');
         $routeName = $request->get('_route');
 
-        $em = $this->container->get('doctrine')->getEntityManager(); 
+        $em = $this->container->get('doctrine')->getManager(); 
         
         $qb = $em->getRepository('PasinterCmsBundle:Page')
                 ->createQueryBuilder('p')

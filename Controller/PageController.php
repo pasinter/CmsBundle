@@ -20,7 +20,7 @@ class PageController extends Controller
 
     public function viewAction($page_slug)
     {
-        $em = $this->getDoctrine()->getEntityManager(); 
+        $em = $this->getDoctrine()->getManager(); 
         $qb = $em->getRepository('PasinterCmsBundle:Page')->createQueryBuilder('p');
         
         $qb
